@@ -9,8 +9,10 @@ using namespace std;
 
 struct student{
 
-    //[Missing Code 1] Define struct student with four members (name ,id , gender, gpa);
-    
+    string name;
+    int id;
+    char gender;
+    float gpa;
 };
 
 struct course{
@@ -33,13 +35,12 @@ student text2student(string text){
         else if(count == 3) gpa += text[i];
     }
     
-    //[Missing Code 2] Fill in the blank with the correct code.;
     s.name = name;
-    s.id = _____________;
-    s.gender = _____________;
-    s.gpa = _____________;
+    s.id = stoi(id);     
+    s.gender = gen[0];      
+    s.gpa = stof(gpa); 
     
-    _____________;
+    return s;
 }
 
 
@@ -104,16 +105,14 @@ int main(){
 				state = 3;
 			}else{
 			
-			    //[Missing Code 3] Append (push_back) textline to lecture_list[] of the recently added course in allcourses[];
-			    
+			    allcourses.back().lecture_list.push_back(textline);
 			}			
 		}else{
 			if(textline == "---------------------------------------"){
 				state = 1;
 			}else{
 				student *p = findstudent(allstudents,atof(textline.c_str()));
-				
-				//[Missing Code 5] Append (push_back) p to student_list of the recently added course in allcourses[];
+                if(p != 0) allcourses.back().student_list.push_back(p);
 				
 			}
 		}
